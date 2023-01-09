@@ -15,10 +15,11 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+import AddARecipe from '../AddARecipe/AddARecipe';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import MyCookBook from '../MyCookBook/MyCookBook';
 
 import './App.css';
 
@@ -63,9 +64,17 @@ function App() {
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/info"
+            path="/recipe"
           >
-            <InfoPage />
+            <AddARecipe />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/cookbook"
+          >
+            <MyCookBook />
           </ProtectedRoute>
 
           <Route
