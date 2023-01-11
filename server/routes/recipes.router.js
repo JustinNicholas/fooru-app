@@ -17,4 +17,20 @@ router.get('/', (req, res) => {
     })
 });
 
+// not done on client side.
+router.post('/', (req, res) => {
+    const queryText = `
+    INSERT INTO "recipes" ("name", "description")
+    VALUES ($1, $2)`;
+    const queryValues = [req.body.recipeName, req.body.recipeDescription];
+
+    pool.query(queryText, queryValues)
+    .then( result => {
+        res.sendStatus(200);
+    }).catch( err => {
+        console.log(err);
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;
